@@ -5,9 +5,15 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Example of a controller with fine-grained authorization
+ * You can set the preAuthorization for every endpoint
+ */
 @RestController
+@RequestMapping("/finegrain-auth")
 public class TestController {
 
     @GetMapping("/admin")
