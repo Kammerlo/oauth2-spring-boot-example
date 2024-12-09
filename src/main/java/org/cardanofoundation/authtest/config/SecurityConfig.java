@@ -1,4 +1,4 @@
-package org.cardanofoundation.authtest;
+package org.cardanofoundation.authtest.config;
 
 import org.cardanofoundation.authtest.security.KeycloakRoleConverter;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,7 +34,8 @@ public class SecurityConfig {
                                 "/swagger-ui/**",
                                 "/v3/api-docs/**",
                                 "/swagger-ui.html",
-                                "/public"
+                                "/public",
+                                "/auth/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )

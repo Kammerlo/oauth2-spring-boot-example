@@ -1,4 +1,4 @@
-package org.cardanofoundation.authtest;
+package org.cardanofoundation.authtest.config;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
