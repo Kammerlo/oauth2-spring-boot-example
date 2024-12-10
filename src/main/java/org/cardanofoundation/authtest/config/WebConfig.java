@@ -14,7 +14,6 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(tokenInterceptor)
-                .addPathPatterns("/user/**", "/admin/**", "/finegrain-auth/**"); // Apply only to specific endpoints
+        registry.addInterceptor(tokenInterceptor);
     }
 }
