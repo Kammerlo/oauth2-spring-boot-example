@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * You don't have to set the preAuthorization for every endpoint, you can also set it on the class level
  */
 @RestController
-@PreAuthorize("hasRole('admin')")
+@PreAuthorize("hasRole(@securityConfig.getAdminRole())")
 @RequestMapping("/admin")
 public class AdminController {
 

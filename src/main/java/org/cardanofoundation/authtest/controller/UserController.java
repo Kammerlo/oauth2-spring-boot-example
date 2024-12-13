@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/user")
-@PreAuthorize("hasRole('user')")
+@PreAuthorize("hasRole(@securityConfig.getUserRole())")
 public class UserController {
 
     @GetMapping("/user")

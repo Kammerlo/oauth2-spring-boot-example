@@ -1,0 +1,35 @@
+keycloak:
+  uri: http://localhost:8080
+  realm: cf-master
+  auth-server-url: ${keycloak.base-url}/realms/${keycloak.realm}/protocol/openid-connect
+
+  cert-url: ${keycloak.base-url}/realms/${keycloak.realm}/protocol/openid-connect/certs
+  resource: webclient
+  principal-attribute: preferred_username
+  public-client: 'true'
+  bearer-only: 'true'
+  roles:
+    user: user
+    admin: admin
+  base-url: http://localhost:8080
+  token-url: ${keycloak.base-url}/realms/${keycloak.realm}/protocol/openid-connect/token
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${keycloak.uri}/realms/${keycloak.realm}
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+      client:
+        registration:
+          keycloak:
+            authorization-grant-type: client_credentials
+            scope: openid
+        provider:
+          keycloak:
+            issuer-uri: ${keycloak.uri}/realms/${keycloak.realm}
+
+
+server:
+  port: '8079'

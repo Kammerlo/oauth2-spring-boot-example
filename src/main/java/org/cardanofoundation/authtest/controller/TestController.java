@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @GetMapping("/admin")
-    @PreAuthorize("hasRole('admin')")
+    @PreAuthorize("hasRole(@securityConfig.getAdminRole())")
     @Operation(summary = "admin Endpoint", description = "admin endpoint")
     @ApiResponse(responseCode = "200", description = "Only accessible for users with the role Admin")
     public ResponseEntity<String> adminEndPoint() {
@@ -25,7 +25,7 @@ public class TestController {
     }
 
     @GetMapping("/user")
-    @PreAuthorize("hasRole('user')")
+    @PreAuthorize("hasRole(@securityConfig.getUserRole())")
     @Operation(summary = "User Endpoint", description = "User endpoint")
     @ApiResponse(responseCode = "200", description = "Only accessible for users with the role User")
     public ResponseEntity<String> userEndPoint() {
